@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seedhe Maut Player</title>
+    <link rel="stylesheet" href="assets/styles/music.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">SM</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fan-art.html">Art</a></li>
+            <li><a href="/world-chat.html">World Chat</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+       
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="player-wrapper">
+        <div class="album-sidebar">
+            <ul class="album-list" id="albumList"></ul>
+        </div>
+        <div class="player-container">
+            <div class="music-card">
+                <div class="album-art">
+                    <img id="albumArt" src="https://i.ytimg.com/vi/QwscAxBlAVY/hqdefault.jpg" alt="Album Art">
+                </div>
+                <div class="track-info">
+                    <h2 id="trackTitle">Nanchaku</h2>
+                    <p id="albumName">Seedhe Maut - Single</p>
+                </div>
+                <div id="ytplayer"></div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="prevBtn"><i class="fas fa-backward"></i></button>
+                    <button class="control-btn play-pause" id="playPauseBtn"><i class="fas fa-play"></i></button>
+                    <button class="control-btn" id="nextBtn"><i class="fas fa-forward"></i></button>
+                </div>
+                <div class="playlist-container">
+                    <h3>Playlist</h3>
+                    <ul class="playlist" id="playlist"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <p>Loading Seedhe Maut Vibes...</p>
+    </div>
+
+    <script src="assets/scripts/music-player.js"></script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
