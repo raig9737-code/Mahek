@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    const SERVER_URL = 'http://localhost:3000';
+    const SERVER_URL = window.SERVER_URL || 'https://tbsm41-backend.onrender.com'; // Dynamic for Vercel
     const ADMIN_EMAIL = 'ujandey007@gmail.com';
 
     let user = null;
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('Pinned message received:', data);
         updatePinnedMessage(data.message);
     });
-    channel.bind('delete-message', (data) => { // New event
+    channel.bind('delete-message', (data) => {
         console.log('Delete message received:', data);
         const msgDiv = document.querySelector(`.chat-message[data-id="${data.id}"]`);
         if (msgDiv) msgDiv.remove();
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    async function deleteChatMessage(messageId) { // New delete function
+    async function deleteChatMessage(messageId) {
         try {
             const { data, error } = await supabase
                 .from('world_chat')

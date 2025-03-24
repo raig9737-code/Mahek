@@ -51,33 +51,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   googleBtn.addEventListener('click', async () => {
     try {
-      console.log('Google login clicked!');
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: 'http://localhost:3000' }
-      });
-      console.log('Google response:', data, 'Error:', error);
-      if (error) throw error;
+        console.log('Google login clicked!');
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: 'https://tbsm4l.vercel.app' } // Replace with your Vercel URL
+        });
+        console.log('Google response:', data, 'Error:', error);
+        if (error) throw error;
     } catch (error) {
-      console.error('Google login failed:', error.message);
-      alert('Google login failed—check console!');
+        console.error('Google login failed:', error.message);
+        alert('Google login failed—check console!');
     }
-  });
+});
 
-  githubBtn.addEventListener('click', async () => {
+githubBtn.addEventListener('click', async () => {
     try {
-      console.log('GitHub login clicked!');
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'github',
-        options: { redirectTo: 'http://localhost:3000' }
-      });
-      console.log('GitHub response:', data, 'Error:', error);
-      if (error) throw error;
+        console.log('GitHub login clicked!');
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'github',
+            options: { redirectTo: 'https://tbsm4l.vercel.app' } // Replace with your Vercel URL
+        });
+        console.log('GitHub response:', data, 'Error:', error);
+        if (error) throw error;
     } catch (error) {
-      console.error('GitHub login failed:', error.message);
-      alert('GitHub login failed—check console!');
+        console.error('GitHub login failed:', error.message);
+        alert('GitHub login failed—check console!');
     }
-  });
+});
 
   authForm.addEventListener('submit', async (e) => {
     e.preventDefault();
