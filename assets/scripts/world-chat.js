@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    const SERVER_URL = window.SERVER_URL || 'https://tbsm41-backend.onrender.com'; // Dynamic for Vercel
+    const SERVER_URL = window.SERVER_URL && window.SERVER_URL !== '{{SERVER_URL}}' ? window.SERVER_URL : 'https://tbsm41-backend.onrender.com';
     const ADMIN_EMAIL = 'ujandey007@gmail.com';
 
     let user = null;
@@ -40,20 +40,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         showPopup('Real-time chat failed—refresh, bro!', 3000);
     });
     channel.bind('new-message', (data) => {
-        console.log('New message received:', data);
+        console.log('New message received:', JSON.stringify(data));
         appendChatMessage(data);
         scrollChatToBottom();
     });
     channel.bind('reaction', (data) => {
-        console.log('Reaction received:', data);
+        console.log('Reaction received:', JSON.stringify(data));
         updateReaction(data);
     });
     channel.bind('pinned', (data) => {
-        console.log('Pinned message received:', data);
+        console.log('Pinned message received:', JSON.stringify(data));
         updatePinnedMessage(data.message);
     });
     channel.bind('delete-message', (data) => {
-        console.log('Delete message received:', data);
+        console.log('Delete message received:', JSON.stringify(data));
         const msgDiv = document.querySelector(`.chat-message[data-id="${data.id}"]`);
         if (msgDiv) msgDiv.remove();
     });
@@ -226,7 +226,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     data: { message_id: messageId, emoji, count }
                 })
             });
-            if (!res.ok) throw new Error(`Reaction failed: ${res.statusText}`);
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(`Reaction failed: ${res.status} - ${errorText}`);
+            }
         } catch (err) {
             console.error('Reaction error:', err);
             showPopup('Reaction failed—check console!', 3000);
@@ -270,7 +273,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                             data: { message: pinMsg }
                         })
                     });
-                    if (!res.ok) throw new Error(`Pin failed: ${res.statusText}`);
+                    if (!res.ok) {
+                        const errorText = await res.text();
+                        throw new Error(`Pin failed: ${res.status} - ${errorText}`);
+                    }
                     document.getElementById('chat-input').value = '';
                 } catch (err) {
                     console.error('Pin error:', err);
@@ -288,6 +294,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (error) throw new Error(`DB error: ${error.message}`);
             msgData.id = data[0].id;
 
+            // Add the message locally to reduce lag
+            appendChatMessage(msgData);
+            scrollChatToBottom();
+
             const res = await fetch(`${SERVER_URL}/send-message`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -297,7 +307,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     data: msgData
                 })
             });
-            if (!res.ok) throw new Error(`Server error: ${res.statusText}`);
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(`Server error: ${res.status} - ${errorText}`);
+            }
             const responseData = await res.json();
             if (responseData.success) {
                 document.getElementById('chat-input').value = '';
@@ -329,6 +342,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 .eq('id', messageId);
             if (deleteError) throw new Error(`Delete error: ${deleteError.message}`);
 
+            // Remove the message locally as a fallback
+            const msgDiv = document.querySelector(`.chat-message[data-id="${messageId}"]`);
+            if (msgDiv) msgDiv.remove();
+
             const res = await fetch(`${SERVER_URL}/send-message`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -338,12 +355,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     data: { id: messageId }
                 })
             });
-            if (!res.ok) throw new Error(`Server error: ${res.statusText}`);
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(`Server error: ${res.status} - ${errorText}`);
+            }
             const responseData = await res.json();
-            if (responseData.success) {
-                const msgDiv = document.querySelector(`.chat-message[data-id="${messageId}"]`);
-                if (msgDiv) msgDiv.remove();
-            } else {
+            if (!responseData.success) {
                 throw new Error('Server rejected delete');
             }
         } catch (err) {
