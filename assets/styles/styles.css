@@ -543,3 +543,99 @@ body {
     width: 100%; /* Full width on tiny screens */
   }
 }
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: #0D0D0D;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn {
+  position: relative;
+  display: inline-block;
+  padding: 2px; /* For the border thickness */
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 600;
+  color: #EAEAEA;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+}
+
+.cta-btn:active {
+  transform: scale(0.95);
+}
+
+.cta-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, #8B0000, #A52A2A);
+  padding: 2px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.cta-btn:hover .cta-border {
+  opacity: 1;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 10;
+  display: block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-content span {
+  transition: transform 0.5s ease-in-out;
+}
+
+.cta-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.cta-btn:hover .cta-content span,
+.cta-btn:hover .cta-icon {
+  transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cta-btn {
+    padding: 1px;
+  }
+  .cta-inner {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-btn {
+    width: 80%;
+  }
+}
