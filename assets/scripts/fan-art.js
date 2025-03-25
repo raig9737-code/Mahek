@@ -51,14 +51,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function loadFanArt(filter) {
         console.log(`Loading fan art with filter: ${filter}`);
+        
         let query = supabase.from('fan_art').select('*');
-        if (filter === 'newest') query = query.order('created_at', { ascending: false });
-        else if (filter === 'most-liked') query = query.order('like_count', { ascending: false });
-        else if (filter === 'trending') query = query.order('trending_score', { ascending: false });
+        
+        switch (filter) {
+            case 'newest':
+                query = query.order('created_at', { ascending: false });
+                break;
+            case 'most-liked':
+                query = query.order('like_count', { ascending: false });
+                break;
+            case 'trending':
+                query = query.order('trending_score', { ascending: false });
+                break;
+            default:
+                console.warn('Unknown filter, defaulting to newest');
+                query = query.order('created_at', { ascending: false });
+        }
 
         const { data, error } = await query;
         if (error) {
             console.error('Fetch error:', error.message, error);
+            showPopup('Failed to load fan art—check console!');
             return;
         }
         console.log('Fetched data:', data);
@@ -81,6 +95,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 grid.appendChild(div);
             });
         }
+
+        document.querySelectorAll('.filter-bar button[data-filter]').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filter);
+        });
     }
 
     async function showArtModal(art) {
@@ -93,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const likeCheckbox = modal.querySelector('#like-checkbox');
         const { data: existingLikes } = await supabase.from('likes').select('*').eq('user_id', user.id).eq('art_id', art.id);
         likeCheckbox.checked = existingLikes.length > 0;
-        likeCheckbox.disabled = false; // Always enable for toggle
+        likeCheckbox.disabled = false;
         likeCheckbox.onclick = () => likeArt(art.id, likeCheckbox.checked);
 
         const deleteBtn = modal.querySelector('.delete-btn');
@@ -121,7 +139,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         modal.querySelector('.comment-btn').onclick = () => postComment(art.id);
         modal.querySelector('.share-btn').onclick = () => shareArt(art.image_url);
-
         modal.querySelector('.close-modal').onclick = () => modal.style.display = 'none';
     }
 
@@ -135,10 +152,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', 'fan-art-preset'); // Replace with your preset
+        formData.append('upload_preset', 'fan-art-preset');
         console.log('Uploading to Cloudinary...');
 
-        const response = await fetch('https://api.cloudinary.com/v1_1/dgtkr4epk/image/upload', { // Replace 'your-cloud-name'
+        const response = await fetch('https://api.cloudinary.com/v1_1/dgtkr4epk/image/upload', {
             method: 'POST',
             body: formData
         });
@@ -185,7 +202,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const { data: art } = await supabase.from('fan_art').select('like_count, created_at').eq('id', artId).single();
 
         if (isChecked && existingLikes.length === 0) {
-            // Like
             const { error: insertError } = await supabase.from('likes').insert({ user_id: user.id, art_id: artId });
             if (insertError) {
                 console.error('Like Insert Error:', insertError.message, insertError);
@@ -205,7 +221,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 document.querySelector('.like-count').textContent = newCount;
             }
         } else if (!isChecked && existingLikes.length > 0) {
-            // Unlike
             const { error: deleteError } = await supabase.from('likes').delete().eq('user_id', user.id).eq('art_id', artId);
             if (deleteError) {
                 console.error('Like Delete Error:', deleteError.message, deleteError);
@@ -282,7 +297,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function deleteArt(artId, imageUrl) {
         if (!confirm('Sure you want to delete this art, bro?')) return;
 
-        // Delete related likes first
         const { error: likesError } = await supabase.from('likes').delete().eq('art_id', artId);
         if (likesError) {
             console.error('Likes Delete Error:', likesError.message, likesError);
@@ -290,7 +304,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Delete related comments (optional, if you want to keep comments, skip this)
         const { error: commentsError } = await supabase.from('comments').delete().eq('art_id', artId);
         if (commentsError) {
             console.error('Comments Delete Error:', commentsError.message, commentsError);
@@ -298,7 +311,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Now delete the art
         console.log('Deleting image from Cloudinary not implemented yet:', imageUrl);
         const { error } = await supabase.from('fan_art').delete().eq('id', artId).eq('user_id', user.id);
         if (error) {

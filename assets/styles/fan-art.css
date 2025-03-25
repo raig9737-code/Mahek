@@ -78,6 +78,11 @@ body {
     transform: translateY(-2px);
 }
 
+.filter-bar button.active {
+    background: #ff6666; /* Lighter red for active state */
+    transform: translateY(-2px);
+}
+
 .submit-btn {
     background: #ff4444;
 }
