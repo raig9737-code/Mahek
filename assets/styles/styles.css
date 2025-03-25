@@ -16,7 +16,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #8B0000; /* Blood red */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -24,13 +24,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid #8B0000;
+  border-bottom: 1px solid #A52A2A; /* Slightly brighter red for contrast */
 }
 
 .logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.8em;
-  color: #8B0000;
+  color: #EAEAEA; /* White for contrast on red */
 }
 
 .nav-links {
@@ -47,14 +47,14 @@ body {
 }
 
 .nav-links a {
-  color: #EAEAEA;
+  color: #EAEAEA; /* White for contrast */
   text-decoration: none;
   font-size: 1.1em;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #A52A2A;
+  color: #000000; /* Black on hover for pop */
 }
 
 .auth-links {
@@ -72,26 +72,26 @@ body {
 
 .auth-links .login {
   padding: 8px 16px;
-  background: #1a1a1a;
-  color: #fff;
+  background: #000000; /* Black button */
+  color: #EAEAEA;
   text-decoration: none;
   border-radius: 4px;
 }
 
 .auth-links .login:hover {
-  background: #333;
+  background: #A52A2A; /* Brighter red on hover */
 }
 
 .auth-links .signup {
-  color: #8B0000;
+  color: #000000; /* Black for contrast */
   font-weight: bold;
   padding: 5px 15px;
-  border: 1px solid #8B0000;
+  border: 1px solid #000000;
   border-radius: 20px;
 }
 
 .auth-links .signup:hover {
-  background-color: #8B0000;
+  background-color: #A52A2A;
   color: #EAEAEA;
 }
 
@@ -104,7 +104,7 @@ body {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background-color: #8B0000;
+  background-color: #EAEAEA; /* White for contrast on red */
   margin: 2px 0;
   transition: all 0.3s ease;
 }
@@ -165,8 +165,8 @@ body {
   padding: 2px;
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 600;
-  color: #EAEAEA;
-  background-color: #1a1a1a;
+  color: #000000; /* Black text */
+  background-color: #8B0000; /* Blood red background */
   cursor: pointer;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -185,7 +185,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: linear-gradient(to right, #8B0000, #A52A2A);
+  background: linear-gradient(to right, #A52A2A, #8B0000); /* Reverse gradient for hover */
   padding: 2px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -199,25 +199,27 @@ body {
   position: relative;
   z-index: 10;
   display: block;
-  padding: 12px 24px;
+  padding: 16px 32px; /* Increased padding for more space (was 12px 24px) */
   border-radius: 8px;
-  background-color: #1a1a1a;
+  background-color: #8B0000; /* Blood red inner */
 }
 
 .cta-content {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px; /* Increased gap for spacing (was 8px) */
 }
 
 .cta-content span {
+  font-size: 1.5em; /* Bigger font (was implicit, ~1em) */
   transition: transform 0.5s ease-in-out;
 }
 
 .cta-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px; /* Slightly larger arrow (was 20px) */
+  height: 24px;
   transition: transform 0.5s ease-in-out;
+  color: #000000; /* Black arrow */
 }
 
 .cta-btn:hover .cta-content span,
@@ -551,9 +553,9 @@ body {
     top: 60px;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #8B0000; /* Keep red on mobile */
     padding: 10px 0;
-    border-bottom: 1px solid #8B0000;
+    border-bottom: 1px solid #A52A2A;
     text-align: center;
   }
 
@@ -599,7 +601,7 @@ body {
   }
 
   .cta-inner {
-    padding: 10px 20px;
+    padding: 12px 24px; /* Adjusted for mobile (slightly less spacious) */
   }
 }
 
@@ -636,5 +638,9 @@ body {
 
   .cta-btn {
     width: 80%;
+  }
+
+  .cta-inner {
+    padding: 10px 20px; /* Further adjusted for smaller screens */
   }
 }
