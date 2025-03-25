@@ -59,7 +59,58 @@ const playlist = [
         artist: "Seedhe Maut",
         album: "Kshama",
         art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
-    }
+    },
+    { 
+        songId: "k9vnITNHqoM", 
+        title: "Natkhat", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    { 
+        songId: "5g4C7JNkRvE", 
+        title: "Nafrat", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    { 
+        songId: "3buqwoYKkL4", 
+        title: "Namcheen", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    { 
+        songId: "nTK0OEAzctM", 
+        title: "Nawazuddin", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    { 
+        songId: "GMGi2p63ga0", 
+        title: "Nadaan", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    { 
+        songId: "14DWUa_6BvI", 
+        title: "Nazarbhattu Freestyle", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    { 
+        songId: "t7XowdWvKfI", 
+        title: "Na Jaaye", 
+        artist: "Seedhe Maut", 
+        album: "न (Na)", 
+        art: "https://imgs.search.brave.com/RM3wy9NUaIMB5KzjSMNYKGwrUZUWnvECiLhutDsZmOM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sYXN0/Zm0uZnJlZXRscy5m/YXN0bHkubmV0L2kv/dS8zMDB4MzAwLzQ1/YmIyNjVmNmEyODYw/MmVlM2FiMzk4MGQw/NzNlMTA1LmpwZw" 
+    },
+    
+    
 ];
 
 // Fallback image if album art fails
