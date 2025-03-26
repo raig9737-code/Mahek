@@ -14,10 +14,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     let user = null;
+    let token = null;
     try {
-        const { data: { user: authUser }, error } = await supabase.auth.getUser();
-        if (error || !authUser) throw new Error(error?.message || 'No user found');
-        user = authUser;
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session?.user) throw new Error('No user found');
+        user = session.user;
+        token = session.access_token; // Get token for backend auth
     } catch (err) {
         console.error('Auth failed:', err.message);
         showPopup('Please log in to chat!', 0);
@@ -26,13 +28,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('emoji-btn').disabled = true;
     }
 
-    if (user) {
+    const reactionMap = {};
+
+    if (user && token) {
         const pusher = new Pusher('77ea7a0133da02d22aa5', { cluster: 'ap2', forceTLS: true });
         const channel = pusher.subscribe('world-chat');
 
         channel.bind('pusher:subscription_succeeded', () => updateOnlineCounter(1));
-        channel.bind('pusher:subscription_error', (err) => showPopup('Real-time chat failed—refresh!', 3000));
+        channel.bind('pusher:subscription_error', (err) => {
+            console.error('Pusher subscription error:', err);
+            showPopup('Real-time chat failed—refresh!', 3000);
+        });
         channel.bind('new-message', (data) => {
+            console.log('New message received:', data);
             appendChatMessage(data);
             scrollChatToBottom();
         });
@@ -71,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const emojiPicker = document.getElementById('emoji-picker');
         const emojiBtn = document.getElementById('emoji-btn');
-        const emojis = ['😀', '😂', '🔥', '👍', '❤️', '😮', '😢', '😡']; // WhatsApp-like emojis
+        const emojis = ['😀', '😂', '🔥', '👍', '❤️', '😮', '😢', '😡'];
         emojis.forEach(emoji => {
             const span = document.createElement('span');
             span.textContent = emoji;
@@ -123,7 +131,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         scrollChatToBottom();
     }
 
-    const reactionMap = {};
     function updateReaction({ message_id, emoji, count }) {
         if (!reactionMap[message_id]) reactionMap[message_id] = {};
         reactionMap[message_id][emoji] = count;
@@ -160,7 +167,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         picker.style.position = 'absolute';
         picker.style.left = `${div.offsetLeft}px`;
         picker.style.top = `${div.offsetTop - 40}px`;
-        const reactions = ['🔥', '😂', '👍']; // WhatsApp-like reactions
+        const reactions = ['🔥', '😂', '👍'];
         reactions.forEach(emoji => {
             const span = document.createElement('span');
             span.textContent = emoji;
@@ -183,7 +190,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             await supabase.from('reactions').upsert({ message_id: messageId, emoji, count });
             const res = await fetch(`${SERVER_URL}/send-message`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify({ channel: 'world-chat', event: 'reaction', data: { message_id: messageId, emoji, count } })
             });
             if (!res.ok) throw new Error(await res.text());
@@ -210,11 +220,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const pinMsg = args.join(' ');
                 try {
                     await supabase.from('pinned_messages').insert({ message: pinMsg });
-                    await fetch(`${SERVER_URL}/send-message`, {
+                    const res = await fetch(`${SERVER_URL}/send-message`, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
                         body: JSON.stringify({ channel: 'world-chat', event: 'pinned', data: { message: pinMsg } })
                     });
+                    if (!res.ok) throw new Error(await res.text());
                     document.getElementById('chat-input').value = '';
                 } catch (err) {
                     console.error('Pin error:', err);
@@ -233,19 +247,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             msgData.id = data[0].id;
             const res = await fetch(`${SERVER_URL}/send-message`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify({ channel: 'world-chat', event: 'new-message', data: msgData })
             });
             if (!res.ok) throw new Error(await res.text());
             const responseData = await res.json();
             if (responseData.success) {
                 document.getElementById('chat-input').value = '';
-                appendChatMessage(msgData);
-                scrollChatToBottom();
+            } else {
+                throw new Error('Server confirmed but no success');
             }
         } catch (err) {
             console.error('Send error:', err);
             showPopup(`Failed to send: ${err.message}`, 3000);
+            appendChatMessage(msgData); // Fallback
+            scrollChatToBottom();
         }
     }
 
@@ -260,7 +279,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const res = await fetch(`${SERVER_URL}/send-message`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify({ channel: 'world-chat', event: 'delete-message', data: { id: messageId } })
             });
             if (!res.ok) throw new Error(await res.text());
