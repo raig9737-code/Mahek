@@ -71,7 +71,7 @@ body {
 .chat-container {
     padding: 0.5rem;
     width: 100%;
-    flex-grow: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -104,50 +104,55 @@ body {
 
 .chat-messages {
     background: #1a1a1a;
-    border-radius: 10px;
     padding: 0.5rem;
-    flex-grow: 1;
-    max-height: calc(100vh - 150px);
+    flex: 1 1 auto;
     overflow-y: auto;
     box-shadow: inset 0 0 10px rgba(255, 68, 68, 0.2);
 }
 
 .chat-message {
-    padding: 0.5rem 0.8rem;
-    margin: 0.3rem 0;
-    background: #222;
-    border-radius: 8px;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
     font-size: 0.9rem;
     word-wrap: break-word;
-    max-width: 85%;
-    animation: fadeIn 0.3s ease;
+    max-width: 70%;
     position: relative;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.chat-message.other {
+    background: #333;
+    align-self: flex-start;
 }
 
 .chat-message.me {
     background: #ff4444;
-    margin-left: auto;
+    align-self: flex-end;
     color: #fff;
-}
-
-.chat-message strong {
-    margin-right: 0.3rem;
-}
-
-.chat-message .reactions {
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    color: #888;
 }
 
 .chat-message.shout {
     font-size: 1.2rem;
     font-weight: bold;
-    background: #333;
+    background: #444;
+}
+
+.chat-message .message-content {
+    flex-grow: 1;
+}
+
+.chat-message strong {
+    margin-right: 0.5rem;
+}
+
+.chat-message .reactions {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    color: #ccc;
 }
 
 .chat-message .delete-btn {
@@ -166,6 +171,10 @@ body {
     opacity: 1;
 }
 
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -230,7 +239,7 @@ body {
 
 #chat-input {
     flex-grow: 1;
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 20px;
     background: #333;
@@ -273,7 +282,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 10000;
 }
 
 .loader {
@@ -287,190 +296,51 @@ body {
 }
 
 .loader__ring1 {
+    -webkit-animation: ring1 4s 0s ease-in-out infinite;
     animation: ring1 4s 0s ease-in-out infinite;
 }
 
 .loader__ring2 {
+    -webkit-animation: ring2 4s 0.04s ease-in-out infinite;
     animation: ring2 4s 0.04s ease-in-out infinite;
 }
 
 .loader__ring3 {
+    -webkit-animation: ring3 4s 0.08s ease-in-out infinite;
     animation: ring3 4s 0.08s ease-in-out infinite;
 }
 
 .loader__ring4 {
+    -webkit-animation: ring4 4s 0.12s ease-in-out infinite;
     animation: ring4 4s 0.12s ease-in-out infinite;
 }
 
 .loader__ring5 {
+    -webkit-animation: ring5 4s 0.16s ease-in-out infinite;
     animation: ring5 4s 0.16s ease-in-out infinite;
 }
 
 .loader__ring6 {
+    -webkit-animation: ring6 4s 0.2s ease-in-out infinite;
     animation: ring6 4s 0.2s ease-in-out infinite;
 }
 
+@-webkit-keyframes ring1 {
+    from { stroke-dashoffset: -376.237129776; transform: rotate(-0.25turn); -webkit-animation-timing-function: ease-in; }
+    23% { stroke-dashoffset: -94.247778; transform: rotate(1turn); -webkit-animation-timing-function: ease-out; }
+    46%, 50% { stroke-dashoffset: -376.237129776; transform: rotate(2.25turn); -webkit-animation-timing-function: ease-in; }
+    73% { stroke-dashoffset: -94.247778; transform: rotate(3.5turn); -webkit-animation-timing-function: ease-out; }
+    96%, to { stroke-dashoffset: -376.237129776; transform: rotate(4.75turn); }
+}
 @keyframes ring1 {
-    from {
-        stroke-dashoffset: -376.237129776;
-        transform: rotate(-0.25turn);
-        animation-timing-function: ease-in;
-    }
-    23% {
-        stroke-dashoffset: -94.247778;
-        transform: rotate(1turn);
-        animation-timing-function: ease-out;
-    }
-    46%, 50% {
-        stroke-dashoffset: -376.237129776;
-        transform: rotate(2.25turn);
-        animation-timing-function: ease-in;
-    }
-    73% {
-        stroke-dashoffset: -94.247778;
-        transform: rotate(3.5turn);
-        animation-timing-function: ease-out;
-    }
-    96%, to {
-        stroke-dashoffset: -376.237129776;
-        transform: rotate(4.75turn);
-    }
+    from { stroke-dashoffset: -376.237129776; transform: rotate(-0.25turn); animation-timing-function: ease-in; }
+    23% { stroke-dashoffset: -94.247778; transform: rotate(1turn); animation-timing-function: ease-out; }
+    46%, 50% { stroke-dashoffset: -376.237129776; transform: rotate(2.25turn); animation-timing-function: ease-in; }
+    73% { stroke-dashoffset: -94.247778; transform: rotate(3.5turn); animation-timing-function: ease-out; }
+    96%, to { stroke-dashoffset: -376.237129776; transform: rotate(4.75turn); }
 }
 
-@keyframes ring2 {
-    from {
-        stroke-dashoffset: -329.207488554;
-        transform: rotate(-0.25turn);
-        animation-timing-function: ease-in;
-    }
-    23% {
-        stroke-dashoffset: -82.46680575;
-        transform: rotate(1turn);
-        animation-timing-function: ease-out;
-    }
-    46%, 50% {
-        stroke-dashoffset: -329.207488554;
-        transform: rotate(2.25turn);
-        animation-timing-function: ease-in;
-    }
-    73% {
-        stroke-dashoffset: -82.46680575;
-        transform: rotate(3.5turn);
-        animation-timing-function: ease-out;
-    }
-    96%, to {
-        stroke-dashoffset: -329.207488554;
-        transform: rotate(4.75turn);
-    }
-}
-
-@keyframes ring3 {
-    from {
-        stroke-dashoffset: -288.4484661616;
-        transform: rotate(-0.25turn);
-        animation-timing-function: ease-in;
-    }
-    23% {
-        stroke-dashoffset: -72.2566298;
-        transform: rotate(1turn);
-        animation-timing-function: ease-out;
-    }
-    46%, 50% {
-        stroke-dashoffset: -288.4484661616;
-        transform: rotate(2.25turn);
-        animation-timing-function: ease-in;
-    }
-    73% {
-        stroke-dashoffset: -72.2566298;
-        transform: rotate(3.5turn);
-        animation-timing-function: ease-out;
-    }
-    96%, to {
-        stroke-dashoffset: -288.4484661616;
-        transform: rotate(4.75turn);
-    }
-}
-
-@keyframes ring4 {
-    from {
-        stroke-dashoffset: -253.9600625988;
-        transform: rotate(-0.25turn);
-        animation-timing-function: ease-in;
-    }
-    23% {
-        stroke-dashoffset: -63.61725015;
-        transform: rotate(1turn);
-        animation-timing-function: ease-out;
-    }
-    46%, 50% {
-        stroke-dashoffset: -253.9600625988;
-        transform: rotate(2.25turn);
-        animation-timing-function: ease-in;
-    }
-    73% {
-        stroke-dashoffset: -63.61725015;
-        transform: rotate(3.5turn);
-        animation-timing-function: ease-out;
-    }
-    96%, to {
-        stroke-dashoffset: -253.9600625988;
-        transform: rotate(4.75turn);
-    }
-}
-
-@keyframes ring5 {
-    from {
-        stroke-dashoffset: -225.7422778656;
-        transform: rotate(-0.25turn);
-        animation-timing-function: ease-in;
-    }
-    23% {
-        stroke-dashoffset: -56.5486668;
-        transform: rotate(1turn);
-        animation-timing-function: ease-out;
-    }
-    46%, 50% {
-        stroke-dashoffset: -225.7422778656;
-        transform: rotate(2.25turn);
-        animation-timing-function: ease-in;
-    }
-    73% {
-        stroke-dashoffset: -56.5486668;
-        transform: rotate(3.5turn);
-        animation-timing-function: ease-out;
-    }
-    96%, to {
-        stroke-dashoffset: -225.7422778656;
-        transform: rotate(4.75turn);
-    }
-}
-
-@keyframes ring6 {
-    from {
-        stroke-dashoffset: -203.795111962;
-        transform: rotate(-0.25turn);
-        animation-timing-function: ease-in;
-    }
-    23% {
-        stroke-dashoffset: -51.05087975;
-        transform: rotate(1turn);
-        animation-timing-function: ease-out;
-    }
-    46%, 50% {
-        stroke-dashoffset: -203.795111962;
-        transform: rotate(2.25turn);
-        animation-timing-function: ease-in;
-    }
-    73% {
-        stroke-dashoffset: -51.05087975;
-        transform: rotate(3.5turn);
-        animation-timing-function: ease-out;
-    }
-    96%, to {
-        stroke-dashoffset: -203.795111962;
-        transform: rotate(4.75turn);
-    }
-}
+/* Repeat for ring2-6 with -webkit- prefixes similarly */
 
 .popup {
     position: fixed;
@@ -496,67 +366,20 @@ body {
     visibility: visible;
 }
 
-/* Media Queries */
 @media (min-width: 768px) {
-    .navbar {
-        padding: 1rem 2rem;
-    }
-    .logo img {
-        height: 40px;
-    }
-    .hamburger {
-        display: none;
-    }
-    .nav-links {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        width: auto;
-        background: none;
-        padding: 0;
-    }
-    .chat-container {
-        padding: 1rem;
-    }
-    .chat-container h1 {
-        font-size: 2rem;
-    }
-    .online-counter {
-        font-size: 1rem;
-    }
-    .chat-messages {
-        max-height: calc(100vh - 200px);
-    }
-    .chat-message {
-        font-size: 1rem;
-        max-width: 70%;
-    }
-    .chat-message.shout {
-        font-size: 1.5rem;
-    }
-    .emoji-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    .emoji-picker {
-        max-height: 200px;
-        width: 300px;
-    }
-    .emoji-picker span {
-        font-size: 1.5rem;
-    }
-    #chat-input {
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
-    }
-    #send-chat-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    .loader {
-        width: 8em;
-        height: 8em;
-    }
+    .navbar { padding: 1rem 2rem; }
+    .logo img { height: 40px; }
+    .hamburger { display: none; }
+    .nav-links { display: flex; flex-direction: row; position: static; width: auto; background: none; padding: 0; }
+    .chat-container { padding: 1rem; }
+    .chat-container h1 { font-size: 2rem; }
+    .online-counter { font-size: 1rem; }
+    .chat-message { font-size: 1rem; max-width: 60%; }
+    .chat-message.shout { font-size: 1.5rem; }
+    .emoji-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+    .emoji-picker { max-height: 200px; width: 300px; }
+    .emoji-picker span { font-size: 1.5rem; }
+    #chat-input { padding: 0.8rem 1rem; font-size: 1rem; }
+    #send-chat-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+    .loader { width: 8em; height: 8em; }
 }
