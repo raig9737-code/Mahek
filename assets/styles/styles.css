@@ -8,15 +8,33 @@
 /* Body & Theme */
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #0D0D0D;
   color: #EAEAEA;
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative; /* Needed for ::before pseudo-element */
+  background: #0D0D0D; /* Solid black background */
+}
+
+/* Overlay the background image with low opacity */
+body::before {
+  content: '';
+  position: fixed; /* Fixed to cover the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/background.jpg'); /* New background image */
+  background-size: cover; /* Ensure the image covers the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Don’t repeat the image */
+  background-attachment: scroll; /* Ensure the background scrolls with the page */
+  opacity: 0.3; /* Lower opacity to make the image more subtle */
+  z-index: -1; /* Place behind all content */
 }
 
 /* Navbar */
 .navbar {
-  background-color: #8B0000; /* Blood red */
+  background-color: #000000; /* Blood red */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -54,7 +72,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #000000; /* Black on hover for pop */
+  color: #a30909; /* Black on hover for pop */
 }
 
 .auth-links {
@@ -118,33 +136,27 @@ body {
   text-align: center;
   position: relative;
   z-index: 2;
+  /* No background here; it’s now on the body */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between logo and text */
 }
 
 .logo-image {
-  max-width: 300px;
-  margin-bottom: 20px;
+  max-width: 200px; /* Adjusted to match screenshot size */
+  margin-bottom: 0; /* Remove default margin */
 }
 
 .hero-content h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5em;
   color: #EAEAEA;
-  margin-bottom: 10px;
   text-transform: uppercase;
-  animation: glitch 2s linear infinite;
-}
-
-.hero-content .red-text {
-  color: #8B0000;
-  font-family: 'Bebas Neue', sans-serif;
-  text-shadow: 2px 2px 4px #A52A2A;
-}
-
-/* Glitch Animations */
-@keyframes glitch {
-  2%, 64% { transform: translate(2px, 0) skew(0deg); }
-  4%, 60% { transform: translate(-2px, 0) skew(0deg); }
-  62% { transform: translate(0, 0) skew(5deg); }
+  margin: 0; /* Remove default margin */
 }
 
 /* CTA Buttons */
@@ -152,79 +164,23 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px; /* Increased gap to match screenshot spacing */
   padding: 20px;
-  background-color: #0D0D0D;
+  background-color: transparent; /* No background */
   position: relative;
   z-index: 2;
 }
 
 .cta-btn {
-  position: relative;
-  display: inline-block;
-  padding: 2px;
   font-family: 'Bebas Neue', sans-serif;
-  font-weight: 600;
-  color: #000000; /* Black text */
-  background-color: #8B0000; /* Blood red background */
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease-in-out;
+  font-size: 1.5em; /* Match nav links size */
+  color: #EAEAEA; /* White text */
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .cta-btn:hover {
-  transform: scale(1.05);
-}
-
-.cta-btn:active {
-  transform: scale(0.95);
-}
-
-.cta-border {
-  position: absolute;
-  inset: 0;
-  border-radius: 10px;
-  background: linear-gradient(to right, #A52A2A, #8B0000); /* Reverse gradient for hover */
-  padding: 2px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.cta-btn:hover .cta-border {
-  opacity: 1;
-}
-
-.cta-inner {
-  position: relative;
-  z-index: 10;
-  display: block;
-  padding: 16px 32px; /* Increased padding for more space (was 12px 24px) */
-  border-radius: 8px;
-  background-color: #8B0000; /* Blood red inner */
-}
-
-.cta-content {
-  display: flex;
-  align-items: center;
-  gap: 12px; /* Increased gap for spacing (was 8px) */
-}
-
-.cta-content span {
-  font-size: 1.5em; /* Bigger font (was implicit, ~1em) */
-  transition: transform 0.5s ease-in-out;
-}
-
-.cta-icon {
-  width: 24px; /* Slightly larger arrow (was 20px) */
-  height: 24px;
-  transition: transform 0.5s ease-in-out;
-  color: #000000; /* Black arrow */
-}
-
-.cta-btn:hover .cta-content span,
-.cta-btn:hover .cta-icon {
-  transform: translateX(4px);
+  color: #a30d0d; /* Black on hover, matching nav links */
 }
 
 /* Floating Image Cards */
@@ -580,7 +536,7 @@ body {
   }
 
   .logo-image {
-    max-width: 200px;
+    max-width: 150px; /* Smaller logo for tablets */
   }
 
   .hero-content h1 {
@@ -597,11 +553,7 @@ body {
   }
 
   .cta-btn {
-    padding: 1px;
-  }
-
-  .cta-inner {
-    padding: 12px 24px; /* Adjusted for mobile (slightly less spacious) */
+    font-size: 1.2em; /* Slightly smaller for tablets */
   }
 }
 
@@ -611,7 +563,7 @@ body {
   }
 
   .logo-image {
-    max-width: 150px;
+    max-width: 120px; /* Even smaller for phones */
   }
 
   .hero-content h1 {
@@ -634,13 +586,10 @@ body {
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 20px; /* Stack buttons vertically on mobile */
   }
 
   .cta-btn {
-    width: 80%;
-  }
-
-  .cta-inner {
-    padding: 10px 20px; /* Further adjusted for smaller screens */
+    font-size: 1em; /* Smaller for phones */
   }
 }
