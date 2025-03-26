@@ -1,5 +1,5 @@
 body {
-    background: #0a0a0a url('/frontend/assets/images/delhi-street.jpg') no-repeat center/cover;
+    background: #0a0a0a url('/assets/images/delhi-street.jpg') no-repeat center/cover;
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
@@ -145,7 +145,7 @@ p {
 /* Cool Stuff */
 .flow-split {
     position: relative;
-    background-image: url('/frontend/assets/images/split-bg.jpg');
+    background-image: url('/assets/images/split-bg.jpg');
     background-size: cover;
     padding: 1rem;
 }
