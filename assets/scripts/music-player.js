@@ -114,49 +114,49 @@ const playlist = [
         title: "Ice",
         artist: "Seedhe Maut",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
     {  
         songId: "hLjlYKr6jVs",
         title: "Gourmet shit!",
         artist: "Seedhe Maut ft. Raftaar",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
     {  
         songId: "ffywND5jorM",
         title: "Moon comes up",
         artist: "Seedhe Maut ft. Baadshah",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
     {  
         songId: "aQS_yIptKAU",
         title: "Round 3",
         artist: "Seedhe Maut",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
     {  
         songId: "l99lMQ0y05E",
         title: "Naraaz",
         artist: "Seedhe Maut",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
     {  
         songId: "WIWwS6U-kHE",
         title: "Brahamachari",
         artist: "Seedhe Maut ft. Raga , GhAatak",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
     {  
         songId: "oLzLSQZRZj4",
         title: "Shakti aur Kshama",
         artist: "Seedhe Maut",
         album: "Kshama",
-        art: "https://i.ytimg.com/vi/XCIYHCXQoxQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCfH5HnxxT4hY1dVn0u7BZPUJZJTQ"
+        art: "/assets/images/kshama.png"
     },
 
 
