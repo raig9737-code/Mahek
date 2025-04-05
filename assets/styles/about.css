@@ -132,11 +132,11 @@ body {
     color: #8B0000;
 }
 
-/* Glitch Effect */
+/* Glitch Effect
 .glitch {
     position: relative;
     animation: glitch 2s linear infinite;
-}
+} */
 
 @keyframes glitch {
     2%, 64% { transform: translate(2px, 0) skew(0deg); }
