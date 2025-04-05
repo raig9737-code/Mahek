@@ -44,7 +44,7 @@ ul.loader {
     margin: 0 0.5em 0 0;
     background: linear-gradient(to bottom, #635863 0%, #3d353b 100%);
     box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.0);
-    animation: pound .7s ease-in-out infinite alternate;
+    animation: pound 0.7s ease-in-out infinite alternate;
     animation-delay: 0.05s;
     transform-origin: center;
 }
@@ -125,6 +125,14 @@ h1 {
     text-transform: uppercase;
 }
 
+.intro-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
 .section {
     margin-bottom: 2rem;
 }
@@ -138,14 +146,14 @@ h2 {
 p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #807878; /* Paragraphs stay this color */
+    color: #807878;
     white-space: pre-line;
 }
 
 /* Cool Stuff */
 .flow-split {
     position: relative;
-    background-image: url('/assets/images/split-bg.jpg');
+
     background-size: cover;
     padding: 1rem;
 }
@@ -157,48 +165,25 @@ p {
     padding: 0.5rem;
 }
 
-.flow-label.calm {
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 255, 0.5);
-    color: #f7f7f5; /* Yellow for Encore */
-}
 
-.flow-label.abj {
-    bottom: 0;
-    right: 0;
-    background: rgba(255, 6, 6, 0.76);
-    color: #f2f7f2; /* Green for Calm */
-}
 
 blockquote {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
-    color: #fdf3f3; /* Quote stays this color */
+    color: #fdf3f3;
     margin: 1rem 0;
     text-align: center;
 }
 
-.track-snippets {
-    margin-top: 1rem;
-}
-
-.track-snippets button {
-    background: #ff4444;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-right: 1rem;
-    cursor: pointer;
-}
-
 .fan-quote {
     font-style: italic;
-    color: #fcfbf9; /* Orange for fan quotes—different from all! */
+    color: #fcfbf9;
     margin: 1rem 0;
     padding: 0.5rem;
     background: rgba(231, 16, 16, 0.815);
     border-left: 3px solid #030303;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 .album-scroll {
@@ -206,7 +191,7 @@ blockquote {
     overflow-x: auto;
     gap: 1rem;
     padding: 1rem 0;
-    scroll-behavior: smooth; /* Smooth sliding! */
+    scroll-behavior: smooth;
 }
 
 .album-art {
@@ -232,4 +217,5 @@ blockquote {
     h2 { font-size: 1.8rem; }
     p, blockquote { font-size: 1.1rem; }
     .album-art { width: 120px; height: 120px; }
+    .intro-image { max-width: 80%; }
 }
