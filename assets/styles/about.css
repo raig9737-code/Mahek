@@ -132,8 +132,8 @@ body {
     color: #8B0000;
 }
 
-/* Glitch Effect
-.glitch {
+/* Glitch Effect (unchanged, commented out) */
+/* .glitch {
     position: relative;
     animation: glitch 2s linear infinite;
 } */
@@ -260,10 +260,14 @@ body {
     align-items: center;
 }
 
-.qr-code {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+.donate-button {
+    /* Increased size for QR code */
+    width: 140px; /* Bigger for better readability */
+    height: 140px; /* Square dimensions */
+    margin-top: 10px; /* Space between text and QR code */
+    display: block; /* Ensure it behaves like a block element */
+    object-fit: contain; /* Keep QR code proportions intact */
+    max-width: 100%; /* Prevent overflow */
 }
 
 .donate-text {
@@ -383,9 +387,9 @@ body {
         height: 214px;
     }
 
-    .qr-code {
-        width: 80px;
-        height: 80px;
+    .donate-button {
+        width: 120px; /* Slightly bigger for smaller screens */
+        height: 120px;
     }
 
     .donate-text {
