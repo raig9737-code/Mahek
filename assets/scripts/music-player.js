@@ -158,6 +158,29 @@ const playlist = [
         album: "Kshama",
         art: "/assets/images/kshama.png"
     },
+    {  
+        songId: "blJQvjUfDdg",
+        title: "Nayaab",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+    songId: "7TCXqyCK6yE",
+    title: "Toh Kya",
+    artist: "Seedhe Maut",
+    album: "Nayaab",
+    art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "zjSIPaHihk",
+        title: "Hoshiyaar",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/kshama.png"
+    },
+
+
 
 
     
