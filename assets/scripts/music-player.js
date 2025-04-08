@@ -173,12 +173,160 @@ const playlist = [
     art: "/assets/images/nayaab.jpeg"
     },
     {  
-        songId: "zjSIPaHihk",
+        songId: "-zjSIPaHihk",
         title: "Hoshiyaar",
         artist: "Seedhe Maut",
         album: "Nayaab",
-        art: "/assets/images/kshama.png"
+        art: "/assets/images/nayaab.jpeg"
     },
+    {  
+        songId: "GlDwK6cc",
+        title: "Anaadi",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "Wsz28sZraTk",
+        title: "Dum Ghutte",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "aOOZgIhVIKg",
+        title: "Choti Soch",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "Nq0X7zlR14o",
+        title: "Gandi Aulaad",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "e04zr2dpHdY",
+        title: "Khoj",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "Dj2cCoSNovo",
+        title: "Kohra",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "WtZ4_lCCTZU",
+        title: "Jua",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "ShJq33LoWxg",
+        title: "Rajdhani",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "nbw96QEJJGM",
+        title: "Chidiya Udd",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "ang7r_Br8bY",
+        title: "Batti",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "dYqx-GbFE5A",
+        title: "Teen Dost",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "L9XS7BMo07k",
+        title: "Marne Ke Baad Bhi…",
+        artist: "Seedhe Maut",
+        album: "Nayaab",
+        art: "/assets/images/nayaab.jpeg"
+    },
+    {  
+        songId: "JfqZ9R1pK-w",
+        title: "Shaktiman",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "BJoXWZnxqEQ",
+        title: "Gehraiyaan",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "5TGrPeQ3bHE",
+        title: "Uss Din",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "a7IgUklG0KU",
+        title: "Meri Baggi",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "QxbiSDStQzw",
+        title: "Dehshat",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "3Qw7PfvxFWA",
+        title: "PNP",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "x_pgqDX9eSc",
+        title: "Pankh feat. Bawari Basanti",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayan.jpg"
+    },
+    {  
+        songId: "yOJQyZJcRso",
+        title: "Kyu",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+    {  
+        songId: "ADZonRIa5Rk",
+        title: "Chalta Reh",
+        artist: "Seedhe Maut",
+        album: "Bayaan",
+        art: "/assets/images/bayaan.jpg"
+    },
+
 
 
 
