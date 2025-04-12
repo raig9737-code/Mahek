@@ -524,12 +524,34 @@ const playlist = [
         album: "Bayaan",
         art: "/assets/images/bayaan.jpg"
     },
-
-
-
-
-
-    
+   {  
+        songId: "IZhBbGoh60A",
+        title: "Soyi Nahi",
+        artist: "Seedhe Maut",
+        album: "Shakti",
+        art: "https://i.ytimg.com/vi/IZhBbGoh60A/mqdefault.jpg"
+    },
+   {  
+        songId: "mGwz92koI6o",
+        title: "Raat ki Rani",
+        artist: "Seedhe Maut",
+        album: "Shakti",
+        art: "https://i.ytimg.com/vi/mGwz92koI6o/mqdefault.jpg"
+    },
+   {  
+        songId: "0Ge9iUp_OlA",
+        title: "Naksha",
+        artist: "Seedhe Maut",
+        album: "Shakti",
+        art: "https://i.ytimg.com/vi/0Ge9iUp_OlA/mqdefault.jpg"
+    },
+   {  
+        songId: "iTqPXtJ6FQs",
+        title: "Khush Nahi",
+        artist: "Seedhe Maut",
+        album: "Shakti",
+        art: "https://i.ytimg.com/vi/iTqPXtJ6FQs/mqdefault.jpg"
+    }, 
     
 ];
 
