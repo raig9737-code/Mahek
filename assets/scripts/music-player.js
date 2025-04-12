@@ -4,7 +4,7 @@ let isPlaying = false;
 let currentAlbum = 'All';
 
 const playlist = [
-    { 
+   { 
         songId: "VjJtH7xM8G4", 
         title: "Nanchaku", 
         artist: "Seedhe Maut ft. MC Stan", 
@@ -43,9 +43,66 @@ const playlist = [
         songId: "VEQ-XJWiQMM", 
         title: "11K", 
         artist: "Seedhe Maut", 
-        album: "Far From Over (EP)", 
+        album: "Lunch Break", 
         art: "https://i.ytimg.com/vi/VEQ-XJWiQMM/mqdefault.jpg" 
     },
+    {  
+        songId: "sSENtdRAEK4",
+        title: "Sick & Proper",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/sSENtdRAEK4/mqdefault.jpg"
+    },
+    {  
+        songId: "7pNo-geT_MA",
+        title: "Sick & Proper",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/7pNo-geT_MA/mqdefault.jpg"
+    },
+    {  
+        songId: "HcdgHvBjR4c",
+        title: "Peace of Mind",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/HcdgHvBjR4c/mqdefault.jpg"
+    },
+    {  
+        songId: "94KgnOb-e8I",
+        title: "Pushpak Vimaan",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/94KgnOb-e8I/mqdefault.jpg"
+    },
+    {  
+        songId: "hJfQ-J6SLlk",
+        title: "Dikkat",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/hJfQ-J6SLlk/mqdefault.jpg"
+    },
+    {  
+        songId: "0O6lql2uHco",
+        title: "Kya Challa",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/0O6lql2uHco/mqdefault.jpg"
+    },
+    {  
+        songId: "hHbAvsLXyhc",
+        title: "Fanne Khan",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/hHbAvsLXyhc/mqdefault.jpg"
+    },
+    {  
+        songId: "jvAmSV0_VrQ",
+        title: "First Place",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/jvAmSV0_VrQ/mqdefault.jpg"
+    },
+
     { 
         songId: "YuWUJg3Kdks", 
         title: "Namastute", 
@@ -310,7 +367,7 @@ const playlist = [
         title: "Pankh feat. Bawari Basanti",
         artist: "Seedhe Maut",
         album: "Bayaan",
-        art: "/assets/images/bayan.jpg"
+        art: "/assets/images/bayaan.jpg"
     },
     {  
         songId: "yOJQyZJcRso",
