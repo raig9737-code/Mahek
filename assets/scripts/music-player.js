@@ -79,8 +79,142 @@ const playlist = [
         title: "Champions",
         artist: "Seedhe Maut",
         album: "Lunch Break",
-        art: "https://i.ytimg.com/vi/VEQ-XJWiQMM/mqdefault.jpg"
+        art: "https://i.ytimg.com/vi/ah6Jfp0lnNQ/mqdefault.jpg"
     },
+   {  
+        songId: "eoPhQicY0sA",
+        title: "Baat Aisi Ghar Jaisi",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/eoPhQicY0sA/mqdefault.jpg"
+    },
+   {  
+        songId: "eKbqvzxA",
+        title: "Naam Kaam Sheher",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/eKbqvzxA/mqdefault.jpg"
+    },
+   {  
+        songId: "2jgjmHByXsI",
+        title: "Pain",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/2jgjmHByXsI/mqdefault.jpg"
+    },
+   {  
+        songId: "dm2RHGYRtas",
+        title: "Hausla",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/dm2RHGYRtas/mqdefault.jpg"
+    },
+   {  
+        songId: "u1mTwf0SR0o",
+        title: "Lunch Break",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/u1mTwf0SR0o/mqdefault.jpg"
+    },
+   {  
+        songId: "JtH_-eRbCTE",
+        title: "Asal G",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/JtH_-eRbCTE/mqdefault.jpg"
+    },
+   {  
+        songId: "mcnko8o5PpA",
+        title: "Swah!",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/mcnko8o5PpA/mqdefault.jpg"
+    },
+   {  
+        songId: "D0vbzoYqQJY",
+        title: "Focused Sedated",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/D0vbzoYqQJY/mqdefault.jpg"
+    },
+   {  
+        songId: "FcmaxpvkSKo",
+        title: "Taakat",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/FcmaxpvkSKo/mqdefault.jpg"
+    },
+   {  
+        songId: "OHQnaPrDc7k",
+        title: "Off Beat",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/OHQnaPrDc7k/mqdefault.jpg"
+    },
+   {  
+        songId: "Ie6ODMbwSCo",
+        title: "Luka Chippi",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/Ie6ODMbwSCo/mqdefault.jpg"
+    },
+   {  
+        songId: "gpQe4jGwACY",
+        title: "Khauf",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/gpQe4jGwACY/mqdefault.jpg"
+    },
+   {  
+        songId: "adhIpm4nwKU",
+        title: "I Don't Miss That Life",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/adhIpm4nwKU/mqdefault.jpg"
+    },
+   {  
+        songId: "8A6Mhh1yTKw",
+        title: "Akatsuki",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/8A6Mhh1yTKw/mqdefault.jpg"
+    },
+   {  
+        songId: "EdBZx48EQWE",
+        title: "Khoon",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/EdBZx48EQWE/mqdefault.jpg"
+    },
+   {  
+        songId: "_9ITzdU4mlU",
+        title: "'W'",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/_9ITzdU4mlU/mqdefault.jpg"
+    },
+   {  
+        songId: "ADVNZM-qrT",
+        title: "Joint In The Booth",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/ADVNZM-qrT/mqdefault.jpg"
+    },
+   {  
+        songId: "qVcHlaFZf6A",
+        title: "Khatta Flow",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/qVcHlaFZf6A/mqdefault.jpg"
+    },
+   {  
+        songId: "0V9jdXKhgx0",
+        title: "Kehna Chahte Hain...",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/0V9jdXKhgx0/mqdefault.jpg"
+    },
+   
     {  
         songId: "hJfQ-J6SLlk",
         title: "Dikkat",
