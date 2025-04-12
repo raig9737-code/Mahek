@@ -75,6 +75,13 @@ const playlist = [
         art: "https://i.ytimg.com/vi/94KgnOb-e8I/mqdefault.jpg"
     },
     {  
+        songId: "ah6Jfp0lnNQ",
+        title: "Champions",
+        artist: "Seedhe Maut",
+        album: "Lunch Break",
+        art: "https://i.ytimg.com/vi/VEQ-XJWiQMM/mqdefault.jpg"
+    },
+    {  
         songId: "hJfQ-J6SLlk",
         title: "Dikkat",
         artist: "Seedhe Maut",
